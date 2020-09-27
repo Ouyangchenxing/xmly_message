@@ -25,7 +25,7 @@
 - cookie 信息抓包自手机app，域名为 `m.ximalaya.com`
 - Secrets 新增 `XMLY_SPEED_COOKIE`，填入cookie信息 ，多账号换行
 - star一下，立即执行，观察运行情况
-- 可能需要修改一次readme.md才能定时运行
+-  **必须**需要修改一次readme.md才能定时运行
 
 2、下载到本地运行   
 
