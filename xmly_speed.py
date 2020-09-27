@@ -12,17 +12,23 @@ import os
 # 喜马拉雅极速版
 # 使用参考 xmly_speed.md
 # cookies填写
-cookies1 = {
-}  # 字典形式
 
 
-cookies2 = ""  # 字符串形式 都可以识别
+cookies1 = ""  # 字符串形式 
+"""
+形如:
+"1&_device=iPhone&68Csssssdeded5&1.1.9; 1&_token=2534344611&267Ffs1519783D91D0D72FA991dededfefefez079MC1991dededfefefezA8B_; NSUP=; XUM=68CE5991dededfefefez8E5; ainr=0; c-oper=%E6%9C%AA%E7%9F%A5; channel=ios-b1; device_model=iPhone 7 Plus; idfa=00000000-0000-0000-0000-000000000000; impl=com.ximalaya.tingLite; ip=1ss; net-mode=WIFI; res=75sss4; _xmLog=xm_kfj6xsss9idi"
+
+XMLY_SPEED_COOKIE也以上面的形式保存
+"""
+cookies2 = {
+}  # 字典形式  都可以识别
 
 cookiesList = [cookies1, ]  # 多账号准备
 
 
 UserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 iting/1.0.12 kdtunion_iting/1.0 iting(main)/1.0.12/ios_1"
-# 需要的自行修改
+# 非iOS设备的需要的自行修改,自己抓包 与cookie形式类似
 
 
 def str2dict(str_cookie):
@@ -32,6 +38,8 @@ def str2dict(str_cookie):
     dict_cookie = {}
     for i in tmp:
         j = i.split("=")
+        if not j[0]:
+            continue
         dict_cookie[j[0].strip()] = j[1].strip()
     return dict_cookie
 
