@@ -787,7 +787,7 @@ def hand(cookies):
                                  headers=headers, cookies=cookies, data=data)
         result = response.json()
         print(result)
-        result=reslut["data"]
+        result=result["data"]
         if not result:
             return
         if result["winFlag"] == 1:
