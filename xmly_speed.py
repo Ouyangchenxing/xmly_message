@@ -407,6 +407,7 @@ def group_getReward(cookies, groupId, userId, flag):
     response = requests.get(
         'https://m.ximalaya.com/speed/web-earn/group/token', headers=headers, cookies=cookies)
     result = json.loads(response.text)
+    print(result)
     token = result["data"]["id"]
     headers = {
         'User-Agent': UserAgent,
@@ -447,6 +448,7 @@ def divide(cookies):
     }
     response = requests.get(
         f'http://m.ximalaya.com/speed/web-earn/carve/multipleInfo?ts={int(time.time()*1000)}', headers=headers, cookies=cookies)
+    print(response.text)
     current = json.loads(response.text)["data"]["currentMultiple"]
     print(f"""{current}/5""")
     for i in range(5-current):
@@ -542,6 +544,7 @@ def bubble(cookies):
     response = requests.post('https://m.ximalaya.com/speed/web-earn/listen/bubbles',
                              headers=headers, cookies=cookies, data=json.dumps(data))
     result = response.json()
+    print(result)
     for i in result["data"]["effectiveBubbles"]:
         print(i["id"])
         receive(cookies, i["id"])
@@ -675,6 +678,7 @@ def card(cookies):
 
     response = requests.get(
         'https://m.ximalaya.com/speed/web-earn/card/userCardInfo', headers=headers, cookies=cookies)
+    print(response.text)
     userCardsList = response.json()["data"]["userCardsList"]
     allIds = set([i["id"] for i in userCardsList if i["id"] != 1])
     delt = set(range(2, 19))-allIds
@@ -720,8 +724,10 @@ def getOmnipotentCard(cookies):
         'Origin': 'https://m.ximalaya.com',
         'Referer': 'https://m.ximalaya.com/xmds-node-spa/apps/speed-growth-activities/card-collection/home',
     }
-    count = requests.get('https://m.ximalaya.com/speed/web-earn/card/omnipotentCardInfo',
-                         headers=headers, cookies=cookies,).json()["data"]["count"]
+    result = requests.get('https://m.ximalaya.com/speed/web-earn/card/omnipotentCardInfo',
+                         headers=headers, cookies=cookies,).json()
+    print(result)
+    count=result["data"]["count"]
     if count == 5:
         print("今日已满")
         return
@@ -779,7 +785,9 @@ def hand(cookies):
 
         response = requests.post('https://m.ximalaya.com/speed/web-earn/mora/action',
                                  headers=headers, cookies=cookies, data=data)
-        result = response.json()["data"]
+        result = response.json()
+        print(result)
+        result=reslut["data"]
         if not result:
             return
         if result["winFlag"] == 1:
