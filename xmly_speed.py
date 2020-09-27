@@ -780,6 +780,8 @@ def hand(cookies):
         response = requests.post('https://m.ximalaya.com/speed/web-earn/mora/action',
                                  headers=headers, cookies=cookies, data=data)
         result = response.json()["data"]
+        if not result:
+            return
         if result["winFlag"] == 1:
             moraRecordId = result["moraRecordId"]
             data = {"betAmount": 200,
