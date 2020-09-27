@@ -22,19 +22,23 @@
 
 1、GitHub action自动运行，账号信息读取自`Repo-Setting-Secrets`  
 
-- cookie 信息抓包自手机app，域名为 `m.ximalaya.com`
+- cookie 信息抓包自手机app，域名为 `m.ximalaya.com`的可以
 - Secrets 新增 `XMLY_SPEED_COOKIE`，填入cookie信息 ，多账号换行
 - star一下，立即执行，观察运行情况
 -  **必须**修改一下文件才能定时运行
 
 2、下载到本地运行   
-
-​			需要两个第三方库 `rsa`和 `requests`  
+   需要两个第三方库 `rsa`和 `requests`  
+   
+### Cookie填写
+形如:  
+![cookie](cookie.png)  
+两种填写方式都支持
 
 ### 查看
 
 点击 Actions -Workflows
 
 ### Note
-部分接口没有抓到，需要手动完成  
+部分新手任务接口没有抓到，需要手动完成  
 有些游戏 (比如猜拳) 第一次需要手动运行
