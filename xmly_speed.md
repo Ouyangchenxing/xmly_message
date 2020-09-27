@@ -24,7 +24,6 @@
 
 - cookie 信息抓包自手机app，域名为 `m.ximalaya.com`
 - Secrets 新增 `XMLY_SPEED_COOKIE`，填入cookie信息 ，多账号换行
-- 将文件 `.github/workflows/xmly_speed` 重命名为 `.github/workflows/xmly_speed.yml`
 - star一下，观察运行情况
 
 2、下载到本地运行   
