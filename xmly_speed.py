@@ -45,7 +45,10 @@ def str2dict(str_cookie):
 
 
 _datatime = time.strftime("%Y%m%d", time.localtime())
-
+print(_datatime)
+_datatime = datetime.now().strftime("%Y%m%d", )
+print(datetime.now())
+print(_datatime)
 
 if "XMLY_SPEED_COOKIE" in os.environ:
     """
