@@ -56,6 +56,9 @@ if "XMLY_SPEED_COOKIE" in os.environ:
     for line in xmly_speed_cookie.split('\n'):
         cookiesList.append(line)
 
+if not cookiesList[0]:
+    print("cookie为空 跳出X")
+    return
 mins = int(time.time())
 date_stamp = (mins-57600) % 86400
 #print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
