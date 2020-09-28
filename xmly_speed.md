@@ -8,11 +8,11 @@
 
  [xmly_speed](xmly_speed.py) 
 
-![xmly_speed](xmly_speed.jpg)
 
 ### 邀请任务
 
-[邀请链接](https://1577553307077650.cn-beijing.fc.aliyuncs.com/2016-08-15/proxy/xmly-GreetingService-812BA409BF91/GreetingFunction/)  （点击之后会自动下载一个txt文件，里面包含了邀请链接，介意勿点）
+[邀请链接](https://1577553307077650.cn-beijing.fc.aliyuncs.com/2016-08-15/proxy/xmly-GreetingService-812BA409BF91/GreetingFunction/)  
+(点击之后会自动下载一个txt文件，里面包含了邀请链接)
 
 如果你不介意，并且之前没有注册过喜马拉雅的话，可以帮我完成一个邀请任务，感谢。
 
@@ -26,7 +26,7 @@
 - fork 本项目
 - Secrets 新增 `XMLY_SPEED_COOKIE`，填入cookie信息 ，多账号换行
 - star一下，立即执行，观察运行情况
--  **必须**修改一下文件才能定时运行
+-  **必须**  *修改*一次文件（比如[README.md](README.md)文件）才能定时运行   (！！！！不要再问为什么不能自动运行;不懂不要修改cron )
 
 2、下载到本地运行   
    需要两个第三方库 `rsa`和 `requests`  
