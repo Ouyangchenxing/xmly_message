@@ -8,6 +8,7 @@ from functools import reduce
 from random import choice
 import hashlib
 from datetime import datetime
+from dateutil import tz
 import os
 # 喜马拉雅极速版
 # 使用参考 xmly_speed.md
@@ -44,10 +45,9 @@ def str2dict(str_cookie):
     return dict_cookie
 
 
-_datatime = time.strftime("%Y%m%d", time.localtime())
-print(_datatime)
-_datatime = datetime.now().strftime("%Y%m%d", )
+_datatime = datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%Y%m%d", )
 print(datetime.now())
+print(datetime.now(tz=tz.gettz('Asia/Shanghai')))
 print(_datatime)
 
 if "XMLY_SPEED_COOKIE" in os.environ:
