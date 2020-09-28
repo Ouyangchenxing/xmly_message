@@ -44,8 +44,7 @@ def str2dict(str_cookie):
     return dict_cookie
 
 
-_datatime = datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%Y%m%d", )
-print(_datatime)
+
 
 if "XMLY_SPEED_COOKIE" in os.environ:
     """
@@ -59,6 +58,10 @@ if "XMLY_SPEED_COOKIE" in os.environ:
 
 mins = int(time.time())
 date_stamp = (mins-57600) % 86400
+#print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+print(datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%Y-%m-%d %H:%M:%S", ))
+_datatime = datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%Y%m%d", )
+print(_datatime)
 print("今日已过秒数: ", date_stamp)
 print("当前时间戳", mins)
 
@@ -854,7 +857,7 @@ def saveListenTime(cookies):
 
 
 ##################################################################
-print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+
 
 
 def main(cookies):
