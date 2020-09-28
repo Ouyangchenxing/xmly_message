@@ -10,22 +10,21 @@ import hashlib
 from datetime import datetime
 from dateutil import tz
 import os
+
 # 喜马拉雅极速版
 # 使用参考 xmly_speed.md
 # cookies填写
 
-
-cookies1 = ""  # 字符串形式 
-"""
-形如:
-"1&_device=iPhone&68Csssssdeded5&1.1.9; 1&_token=2534344611&267Ffs1519783D91D0D72FA991dededfefefez079MC1991dededfefefezA8B_; NSUP=; XUM=68CE5991dededfefefez8E5; ainr=0; c-oper=%E6%9C%AA%E7%9F%A5; channel=ios-b1; device_model=iPhone 7 Plus; idfa=00000000-0000-0000-0000-000000000000; impl=com.ximalaya.tingLite; ip=1ss; net-mode=WIFI; res=75sss4; _xmLog=xm_kfj6xsss9idi"
-
-XMLY_SPEED_COOKIE也以上面的形式保存
-"""
+cookies1 = ""  # 字符串形式 都可以识别
 cookies2 = {
-}  # 字典形式  都可以识别
+}  # 字典形式
+
+
+
 
 cookiesList = [cookies1, ]  # 多账号准备
+
+
 
 
 UserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 iting/1.0.12 kdtunion_iting/1.0 iting(main)/1.0.12/ios_1"
@@ -46,8 +45,6 @@ def str2dict(str_cookie):
 
 
 _datatime = datetime.now(tz=tz.gettz('Asia/Shanghai')).strftime("%Y%m%d", )
-print(datetime.now())
-print(datetime.now(tz=tz.gettz('Asia/Shanghai')))
 print(_datatime)
 
 if "XMLY_SPEED_COOKIE" in os.environ:
@@ -681,7 +678,7 @@ def card(cookies):
 
     response = requests.get(
         'https://m.ximalaya.com/speed/web-earn/card/userCardInfo', headers=headers, cookies=cookies)
-    print(response.text)
+    # print(response.text)
     userCardsList = response.json()["data"]["userCardsList"]
     allIds = set([i["id"] for i in userCardsList if i["id"] != 1])
     delt = set(range(2, 19))-allIds
