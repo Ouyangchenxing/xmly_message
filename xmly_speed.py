@@ -54,6 +54,8 @@ if "XMLY_SPEED_COOKIE" in os.environ:
     xmly_speed_cookie = os.environ["XMLY_SPEED_COOKIE"]
     cookiesList = []  # 重置cookiesList
     for line in xmly_speed_cookie.split('\n'):
+        if not line:
+            continue 
         cookiesList.append(line)
 
 if not cookiesList[0]:
