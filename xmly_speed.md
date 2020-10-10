@@ -10,7 +10,7 @@
 
 
 ### 邀请任务
-[注册链接直达](https://service-6q5z0csv-1301215769.bj.apigw.tencentcs.com/release/xmly1) (注册链接直达)  
+[注册链接直达](https://service-6q5z0csv-1301215769.bj.apigw.tencentcs.com/release/xmly1) (手机号注册)  
 
 [邀请链接1](https://service-59tnch6v-1301215769.bj.apigw.tencentcs.com/release/xmly) (点击之后会打开一个网页，里面包含了邀请链接)
 
