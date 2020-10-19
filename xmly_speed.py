@@ -36,7 +36,7 @@ if "XMLY_SPEED_COOKIE" in os.environ:
             continue
         cookiesList.append(line)
     # GitHub action运行需要填写对应的secrets
-    if "XMLY_ACCUMULATE_TIME" in os.environ and os.environ["XMLY_ACCUMULATE_TIME"] == 1:
+    if "XMLY_ACCUMULATE_TIME" in os.environ and os.environ["XMLY_ACCUMULATE_TIME"] == '1':
         XMLY_ACCUMULATE_TIME = 1
         print("action 自动刷时长打开")
 
