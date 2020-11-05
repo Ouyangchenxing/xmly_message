@@ -13,11 +13,11 @@
  [xmly_speed](xmly_speed.py)    
 
 ### 支持功能
-~~1.幸运转盘4次~~  收益过低,且容易报错,故去除
+~~1.幸运转盘4次~~  收益过低,且容易报错,故去除  
 2.答题赚钱(完整)  
 3.听书集卡获得抽卡机会、领取万能卡，但不会自动兑换  
 4.首页、宝箱奖励及翻倍(完整)  
-5.自动刷收听时长(可选项)
+5.自动刷收听时长(可选项)   
 
 
 
@@ -42,7 +42,7 @@
 - 需要刷时长的，Secrets 新增 `XMLY_ACCUMULATE_TIME`，填入`zero_s1`；可能会黑号，请知悉
 
 2、下载到本地运行   
-   需要两个第三方库 `rsa`和 `requests`  
+   需要第三方库`requests`  
 
 ### 如何抓包cookie
 - [手机抓包工具汇总](https://blog.zengrong.net/post/capture-package-on-phone/)
