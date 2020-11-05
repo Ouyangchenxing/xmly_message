@@ -1,10 +1,10 @@
 # 喜马拉雅极速版  
 
-
 <p align="center">
-  <img src="xmly_speed.jpg" alt="喜马拉雅极速版收益" width='30%' height='30%'/>
+  <img src="xmly_speed.jpg" alt="喜马拉雅极速版收益" width='40%' height='40%'/>
 
-</p>
+
+
 
 开个新坑    
 喜马拉雅**极速版**自动化脚本    
@@ -49,9 +49,7 @@
 - [Stream -- iPhone上抓包神器](https://blog.csdn.net/heqiang2015/article/details/84023327)
 
 <p align="center">
-  <img src="抓包.png" alt="抓包" width='30%' height='30%'/>
-
-</p>  
+  <img src="抓包.png" alt="抓包" width='40%' height='40%'/> 
 
 框中信息，不包含开头的`Cookie: `
 
@@ -66,3 +64,8 @@
 - ~~旧脚本会刷收听时长，因此而黑号的，本人概不负责，请知悉（最新代码已经移除）~~ 最新版本修订为可选项
 - ~~暂时去除刷时长功能，但是**保留了收取时长气泡以及翻倍的功能**。因此你可以保持app后台播放，每隔一段时间进入app刷新福利页面即可~~
 - 不要询问 **可以通过简单搜索就可以知道答案** 的问题
+
+### 赞赏码(开发不易,请作者喝杯奶茶)
+
+<p align="center">
+  <img src="thanks.jpg" alt="抓包" width='50%' height='50%'/>
