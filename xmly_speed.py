@@ -30,6 +30,7 @@ if "XMLY_SPEED_COOKIE" in os.environ:
     """
     print("执行自GitHub action")
     xmly_speed_cookie = os.environ["XMLY_SPEED_COOKIE"]
+    bark_machine_code = os.environ["BARK_MACHINE_CODE"]
     cookiesList = []  # 重置cookiesList
     for line in xmly_speed_cookie.split('\n'):
         if not line:
@@ -590,6 +591,15 @@ def account(cookies):
         print("网络请求异常,为避免GitHub action报错,直接退出")
         exit()
     result = response.json()
+    bark_content = f"""
+ximalaya
+当前剩余:{result["total"]/10000}
+今日获得:{result["todayTotal"]/10000}
+累计获得:{result["historyTotal"]/10000}
+"""
+    
+    bark_url = 'https://api.day.app/' + str(bark_machine_code) + '/' + bark_content
+    requests.get(bark_url)
     print(f"""
 当前剩余:{result["total"]/10000}
 今日获得:{result["todayTotal"]/10000}
