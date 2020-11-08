@@ -601,7 +601,7 @@ def account(cookies):
 """
     print(bj_dt)
     shanghai_time = datetime.now(tz=cst_tz)
-    print(shanghai)
+    print(shanghai_time)
     if china.now().hour % 9 == 0 and china.now().minute >= 30:
         print('发送bark推送！')
         bark_url = 'https://api.day.app/' + str(bark_machine_code) + '/' + bark_content
