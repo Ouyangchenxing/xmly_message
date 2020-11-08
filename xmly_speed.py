@@ -602,6 +602,7 @@ def account(cookies):
     utcnow = datetime.utcnow()
     utcnow = utcnow.replace(tzinfo=utc_tz)
     china = utcnow.astimezone(cst_tz)
+    print(china.now())
     print(china.now().hour % 9, china.now().minute)
     if china.now().hour % 9 == 0 and china.now().minute >= 30:
         print('发送bark推送！')
