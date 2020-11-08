@@ -599,6 +599,9 @@ def account(cookies):
 今日获得:{result["todayTotal"]/10000}
 累计获得:{result["historyTotal"]/10000}
 """
+    now = datetime.now().replace(tzinfo=cst_tz)
+    #local_dt = cst_tz.localize(now, is_dst=None)
+    utctime = now.astimezone(utc)
     utcnow = datetime.utcnow()
     utcnow = utcnow.replace(tzinfo=utc_tz)
     china = utcnow.astimezone(cst_tz)
