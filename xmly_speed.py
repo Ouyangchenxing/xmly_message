@@ -9,11 +9,13 @@ from random import choice
 import hashlib
 from datetime import datetime, timedelta
 import os
+from pytz import utc, timezone
 
 
 # 喜马拉雅极速版
 # 使用参考 xmly_speed.md
-
+cst_tz = timezone('Asia/Shanghai')
+utc_tz = timezone('UTC')
 ###################################################
 # 对应方案2: 下载到本地,需要此处填写
 cookies1 = ""
@@ -592,20 +594,18 @@ def account(cookies):
         exit()
     result = response.json()
     bark_content = f"""
-ximalaya
+喜马拉雅极速版
 当前剩余:{result["total"]/10000}
 今日获得:{result["todayTotal"]/10000}
 累计获得:{result["historyTotal"]/10000}
 """
-    
-    bark_url = 'https://api.day.app/' + str(bark_machine_code) + '/' + bark_content
-    requests.get(bark_url)
-    print(f"""
-当前剩余:{result["total"]/10000}
-今日获得:{result["todayTotal"]/10000}
-累计获得:{result["historyTotal"]/10000}
-
-""")
+    utcnow = datetime.utcnow()
+    utcnow = utcnow.replace(tzinfo=utc_tz)
+    china = utcnow.astimezone(cst_tz)
+    if china.now().hour % 9 == 0 and china.now().minute >= 30:
+        bark_url = 'https://api.day.app/' + str(bark_machine_code) + '/' + bark_content
+        requests.get(bark_url)
+    print(bark_content)
 
 
 def answer(cookies):
