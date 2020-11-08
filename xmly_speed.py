@@ -599,6 +599,7 @@ def account(cookies):
 今日获得:{result["todayTotal"]/10000}
 累计获得:{result["historyTotal"]/10000}
 """
+    print(bj_dt)
     shanghai_time = datetime.now(tz=cst_tz)
     print(shanghai)
     if china.now().hour % 9 == 0 and china.now().minute >= 30:
