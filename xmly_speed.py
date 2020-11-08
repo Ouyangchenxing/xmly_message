@@ -602,7 +602,9 @@ def account(cookies):
     utcnow = datetime.utcnow()
     utcnow = utcnow.replace(tzinfo=utc_tz)
     china = utcnow.astimezone(cst_tz)
+    print(china.now().hour % 9, china.now().minute)
     if china.now().hour % 9 == 0 and china.now().minute >= 30:
+        print('发送bark推送！')
         bark_url = 'https://api.day.app/' + str(bark_machine_code) + '/' + bark_content
         requests.get(bark_url)
     print(bark_content)
