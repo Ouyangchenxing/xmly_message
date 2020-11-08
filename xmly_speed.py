@@ -594,7 +594,6 @@ def account(cookies):
         exit()
     result = response.json()
     bark_content = f"""
-喜马拉雅极速版
 当前剩余:{result["total"]/10000}
 今日获得:{result["todayTotal"]/10000}
 """
@@ -604,7 +603,7 @@ def account(cookies):
     # print(bj_dt.hour, bj_dt.minute)
     if bj_dt.hour % 6 == 0 and bj_dt.minute <= 30:
         print('发送bark推送！')
-        bark_url = 'https://api.day.app/' + str(bark_machine_code) + '/' + bark_content
+        bark_url = 'https://api.day.app/' + str(bark_machine_code) + '/喜马拉雅极速版/' + bark_content
         requests.get(bark_url)
     print(f"""
 喜马拉雅极速版
