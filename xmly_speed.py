@@ -599,16 +599,8 @@ def account(cookies):
 今日获得:{result["todayTotal"]/10000}
 累计获得:{result["historyTotal"]/10000}
 """
-    now = datetime.now().replace(tzinfo=cst_tz)
-    #local_dt = cst_tz.localize(now, is_dst=None)
-    utctime = now.astimezone(utc)
-    utcnow = datetime.utcnow()
-    utcnow = utcnow.replace(tzinfo=utc_tz)
-    china = utcnow.astimezone(cst_tz)
-    print(1, utcnow)
-    print(2, utcnow.now())
-    print(3, china.now())
-    print(china.now().hour % 9, china.now().minute)
+    shanghai_time = datetime.datetime.now(tz=cst_tz)
+    print(shanghai)
     if china.now().hour % 9 == 0 and china.now().minute >= 30:
         print('发送bark推送！')
         bark_url = 'https://api.day.app/' + str(bark_machine_code) + '/' + bark_content
