@@ -597,17 +597,21 @@ def account(cookies):
 喜马拉雅极速版
 当前剩余:{result["total"]/10000}
 今日获得:{result["todayTotal"]/10000}
-累计获得:{result["historyTotal"]/10000}
 """
     print(bj_dt)
     # shanghai_time = datetime.now(tz=cst_tz)
     # print(shanghai_time)
-    print(bj_dt.hour, bj_dt.minute)
-    if bj_dt.hour % 9 == 0 and bj_dt.minute >= 30:
+    # print(bj_dt.hour, bj_dt.minute)
+    if bj_dt.hour % 10 == 0 and bj_dt.minute <= 30:
         print('发送bark推送！')
         bark_url = 'https://api.day.app/' + str(bark_machine_code) + '/' + bark_content
         requests.get(bark_url)
-    print(bark_content)
+    print(f"""
+喜马拉雅极速版
+当前剩余:{result["total"]/10000}
+今日获得:{result["todayTotal"]/10000}
+累计获得:{result["historyTotal"]/10000}
+""")
 
 
 def answer(cookies):
