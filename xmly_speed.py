@@ -831,8 +831,8 @@ def get_uid(cookies):
 
 def main():
     bark_content = ''
-    for i in cookiesList:
-        print(">>>>>>>>>【账号开始】")
+    for idx, ck in enumerate(cookiesList):
+        print(">>>>>>>>>【账号%d开始】" % idx)
         cookies = str_to_dict(i)
         try:
             uid = cookies["1&_token"].split("&")[0]
@@ -853,8 +853,8 @@ def main():
         index_baoxiang_award(cookies)  # 首页、宝箱奖励及翻倍
         account_info = account(cookies)
         bark_content = bark_content + account_info + '\n'
-    if bj_dt.hour % 18 == 0 and bj_dt.hour / 18 == 1 and bj_dt.minute <= 30:
-        requests.get('https://api.day.app/%s/喜马拉雅极速版/%s' % (bark_machine_code, bark_content[:-1]))
+    #if bj_dt.hour % 18 == 0 and bj_dt.hour / 18 == 1 and bj_dt.minute <= 30:
+    requests.get('https://api.day.app/%s/喜马拉雅极速版/%s' % (bark_machine_code, bark_content[:-1]))
 
 if __name__ == '__main__':
     main()
