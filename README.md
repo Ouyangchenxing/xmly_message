@@ -4,15 +4,15 @@
   <img src="xmly_speed.jpg" alt="喜马拉雅极速版收益" width='40%' height='40%'/>
 
 ## 注意
-如果使用bark app推送，建议直接fork本仓库
-由于本打算自己用的，所以我改了secrets的刷时长的value（只有github action受影响）
-解决方法
-打开action看日志，看看action是否打开时长，如果显示未打开，则查看脚本代码第44行，如下
-if "XMLY_ACCUMULATE_TIME" in os.environ and os.environ["XMLY_ACCUMULATE_TIME"] == 'zero_s1':
-把secrets改成代码里的最后引号一个值，True或者zero_s1，自己看
-如果你忍不了报错（github action红色报错）注释掉代码848行，这个作者是注释掉的，我给打开了。
+如果使用bark app推送，建议直接fork本仓库  
+由于本打算自己用的，所以我改了secrets的刷时长的value（只有github action受影响）  
+解决方法  
+打开action看日志，看看action是否打开时长，如果显示未打开，则查看脚本代码第44行，如下  
+if "XMLY_ACCUMULATE_TIME" in os.environ and os.environ["XMLY_ACCUMULATE_TIME"] == 'zero_s1':  
+把secrets改成代码里的最后引号一个值，True或者zero_s1，自己看  
+如果你忍不了报错（github action红色报错）注释掉代码848行，这个作者是注释掉的，我给打开了。  
 
-如果想更改通知文字格式，请自己修改第822行代码
+如果想更改通知文字格式，请自己修改第822行代码  
 
 ### 关于测试bark app推送
 打开脚本，注释掉第856行代码（if bj_dt.hour % 18 == 0 and bj_dt.hour / 18 == 1 and bj_dt.minute <= 30:），第857行代码向左缩进一个tab键（不缩进也无所谓，那应该会推送两次，反正是测试） ，测试完恢复原状就行，如果是煤30分钟运行一次，则每天晚上6.00-6.30推送一次，更改运行间隔时间肯定报错，详细请修改脚本第856行代码！
