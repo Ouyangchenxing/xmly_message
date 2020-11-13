@@ -22,7 +22,7 @@
 
 
 ### 邀请任务
-[注册链接直达](https://service-6q5z0csv-1301215769.bj.apigw.tencentcs.com/release/xmly1) (手机号注册)  
+[注册链接直达](https://m.ximalaya.com/xmds-node-spa/apps/speed-growth-activities/web-earn/landing?parentUserId=266513239&channel=1&srcChannel=weixin&srcPicUrl=https://fdfs.xmcdn.com/group63/M06/26/3C/wKgMcl0Z7-bgXtm3AAAP_-xdbjM707.png&srcText=1) (手机号注册)  
 如果你的手机以及手机号之前没有注册过喜马拉雅的话，可以帮我完成一个邀请任务，感谢。
 
 ### 账号注册以及风控
@@ -37,6 +37,7 @@
 - cookie 信息抓包自**手机app(喜马拉雅极速版)**，域名为 `m.ximalaya.com`的可以
 - fork 本项目
 - Secrets 新增 `XMLY_SPEED_COOKIE`，填入cookie信息 ，多账号换行
+- Secrets BARK_MACHINE_CODE，填你bark app的机器码（https://api.day.app/Y8G3ER7Bh/这里改成你自己的推送内容 Y8G3ER7Bh
 - star一下，立即执行，观察运行情况
 -  **必须**  修改一次文件（比如自己库中的README.md文件）才能定时运行   (！！！！不要再问为什么不能自动运行;不懂不要修改cron )  
 - 需要刷时长的，Secrets 新增 `XMLY_ACCUMULATE_TIME`，填入`zero_s1`；可能会黑号，请知悉
