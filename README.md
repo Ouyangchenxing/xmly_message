@@ -4,12 +4,12 @@
   <img src="xmly_speed.jpg" alt="喜马拉雅极速版收益" width='40%' height='40%'/>
 
 ## 注意
-如果使用bark app推送，建议直接fork本仓库，或者自行修改 xmly_speed/.github/workflows/喜马拉雅.yml 文件  
-由于本打算自己用的，所以我改了secrets的刷时长的value（只有github action受影响）  
+如果使用bark app推送，建议直接fork本仓库，或者自行修改原作者 xmly_speed/.github/workflows/喜马拉雅.yml 文件，自己加一个secrets
+由于本打算自己用的，所以我改了secrets的刷时长的value，现在修复了，不管怎样，现在给出解决放啊（只有github action受影响）  
 解决方法  
-打开action看日志，看看action是否打开时长，如果显示未打开，则查看脚本代码第44行，如下  
-if "XMLY_ACCUMULATE_TIME" in os.environ and os.environ["XMLY_ACCUMULATE_TIME"] == 'zero_s1':  
-把secrets改成代码里的最后引号一个值，True或者zero_s1，自己看  
+* 打开action看日志，看看action是否打开时长，如果显示未打开，则查看脚本代码第44行，如下  
+  if "XMLY_ACCUMULATE_TIME" in os.environ and os.environ["XMLY_ACCUMULATE_TIME"] == 'zero_s1':  
+* 把secrets改成代码里的最后引号一个值，True或者zero_s1，自己看  
 如果你忍不了报错（github action红色报错）注释掉代码848行，这个作者是注释掉的，我给打开了。  
 
 如果想更改通知文字格式，请自己修改第822行代码  
