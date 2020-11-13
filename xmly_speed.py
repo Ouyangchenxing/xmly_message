@@ -58,7 +58,7 @@ def str_to_dict(str_cookie):
             if not j[0]:
                 continue
             dict_cookie[j[0].strip()] = j[1].strip()
-        print(dict_cookie)
+        # print(dict_cookie)
     except:
         print("cookie格式填写错误")
     return dict_cookie
