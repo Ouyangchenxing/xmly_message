@@ -833,7 +833,7 @@ def main():
     bark_content = ''
     for idx, ck in enumerate(cookiesList):
         print(">>>>>>>>>【账号%d开始】" % idx)
-        cookies = str_to_dict(i)
+        cookies = str_to_dict(ck)
         try:
             uid = cookies["1&_token"].split("&")[0]
         except:
