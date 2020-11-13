@@ -3,7 +3,7 @@
 <p align="center">
   <img src="xmly_speed.jpg" alt="喜马拉雅极速版收益" width='40%' height='40%'/>
 
-
+# 日志出现错误信息不用管，我只是输出看看错在哪一行
 
 
 开个新坑    
