@@ -36,7 +36,6 @@ if "XMLY_SPEED_COOKIE" in os.environ:
     print('执行自GitHub action')
     xmly_speed_cookie = os.environ["XMLY_SPEED_COOKIE"]
     bark_machine_code = os.environ["BARK_MACHINE_CODE"]
-    maximum_duration = os.environ['MAXIMUM_DURATION']
     cookiesList = []  # 重置cookiesList
     for line in xmly_speed_cookie.split('\n'):
         if not line:
@@ -46,6 +45,10 @@ if "XMLY_SPEED_COOKIE" in os.environ:
     if "XMLY_ACCUMULATE_TIME" in os.environ and os.environ["XMLY_ACCUMULATE_TIME"] == 'zero_s1':
         XMLY_ACCUMULATE_TIME = 1
         print('action 自动刷时长打开')
+    if 'MAXIMUM_DURATION' in os.environ and int(os.environ['MAXIMUM_DURATION']) >= 0 :
+        maximum_duration = os.environ['MAXIMUM_DURATION']
+    else:
+        maximum_duration = 1200
 
 UserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 iting/1.0.12 kdtunion_iting/1.0 iting(main)/1.0.12/ios_1"
 
