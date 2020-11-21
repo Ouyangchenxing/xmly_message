@@ -47,8 +47,11 @@ if "XMLY_SPEED_COOKIE" in os.environ:
         print('action 自动刷时长打开')
     try:
         if "MAXIMUM_DURATION" in os.environ and os.environ["MAXIMUM_DURATION"] != '':
-        maximum_duration = os.environ['MAXIMUM_DURATION']
-        print('时长限制：%d' % maximum_duration)
+            maximum_duration = os.environ['MAXIMUM_DURATION']
+            print('时长限制：%d' % maximum_duration)
+        else:
+            maximum_duration = 1200
+            print('时长限制：%d' % maximum_duration)
     except:
         maximum_duration = 1200
         print('时长限制：%d' % maximum_duration)
