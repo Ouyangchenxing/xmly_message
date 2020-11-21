@@ -26,4 +26,5 @@ jobs:
             XMLY_SPEED_COOKIE: ${{ secrets.XMLY_SPEED_COOKIE }}
             XMLY_ACCUMULATE_TIME: ${{ secrets.XMLY_ACCUMULATE_TIME }}
             BARK_MACHINE_CODE: ${{ secrets.BARK_MACHINE_CODE }}
+            MAXIMUM_DURATION: ${{ secrets.MAXIMUM_DURATION }}
     
