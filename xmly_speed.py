@@ -47,17 +47,17 @@ if "XMLY_SPEED_COOKIE" in os.environ:
         print('action 自动刷时长打开')
     try:
         if "MAXIMUM_DURATION" in os.environ and os.environ["MAXIMUM_DURATION"] != '':
-            maximum_duration = os.environ['MAXIMUM_DURATION']
-            print('1时长限制：%s' % maximum_duration)
-            print(traceback.format_exc())
+            maximum_duration = int(os.environ['MAXIMUM_DURATION'])
+#             print('1时长限制：%d' % maximum_duration)
+#             print(traceback.format_exc())
         else:
             maximum_duration = 1200
-            print('2时长限制：%d' % maximum_duration)
-            print(traceback.format_exc())
+#             print('2时长限制：%d' % maximum_duration)
+#             print(traceback.format_exc())
     except:
         maximum_duration = 1200
-        print('3时长限制：%d' % maximum_duration)
-        print(traceback.format_exc())
+    print('时长限制：%d' % maximum_duration)
+#         print(traceback.format_exc())
 
 UserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 iting/1.0.12 kdtunion_iting/1.0 iting(main)/1.0.12/ios_1"
 
