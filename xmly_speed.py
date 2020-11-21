@@ -45,8 +45,9 @@ if "XMLY_SPEED_COOKIE" in os.environ:
     if "XMLY_ACCUMULATE_TIME" in os.environ and os.environ["XMLY_ACCUMULATE_TIME"] == 'zero_s1':
         XMLY_ACCUMULATE_TIME = 1
         print('action 自动刷时长打开')
-    if 'MAXIMUM_DURATION' in os.environ and int(os.environ['MAXIMUM_DURATION']) >= 0 :
+    if 'MAXIMUM_DURATION' in os.environ:
         maximum_duration = os.environ['MAXIMUM_DURATION']
+        print('时长限制：%d' % maximum_duration)
     else:
         maximum_duration = 1200
 
