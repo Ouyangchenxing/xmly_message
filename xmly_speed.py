@@ -24,8 +24,9 @@ import traceback
 cookies1 = ''
 cookies2 = ''
 cookiesList = [cookies1, cookies2]  # 多账号准备
-XMLY_ACCUMULATE_TIME = 1    # 希望刷时长的,此处置1
+XMLY_ACCUMULATE_TIME = 0    # 希望刷时长的,此处置1
 bark_machine_code = ''  # 填写bark机器码
+maximum_duration = 1200
 
 # 使用方案1：GitHub action自动运行,此处无需填写;
 if "XMLY_SPEED_COOKIE" in os.environ:
@@ -35,6 +36,7 @@ if "XMLY_SPEED_COOKIE" in os.environ:
     print('执行自GitHub action')
     xmly_speed_cookie = os.environ["XMLY_SPEED_COOKIE"]
     bark_machine_code = os.environ["BARK_MACHINE_CODE"]
+    maximum_duration = os.environ['MAXIMUM_DURATION']
     cookiesList = []  # 重置cookiesList
     for line in xmly_speed_cookie.split('\n'):
         if not line:
@@ -595,24 +597,27 @@ def saveListenTime(cookies):
     }
     listentime = date_stamp
     print(f"上传本地收听时长1: {listentime//60}分钟")
-    currentTimeMillis = int(time.time()*1000)-2
-    uid = get_uid(cookies)
-    sign = hashlib.md5(
-        f'currenttimemillis={currentTimeMillis}&listentime={listentime}&uid={uid}&23627d1451047b8d257a96af5db359538f081d651df75b4aa169508547208159'.encode()).hexdigest()
-    data = {
-        'activtyId': 'listenAward',
-        'currentTimeMillis': currentTimeMillis,
-        'listenTime': str(listentime),
-        'nativeListenTime': str(listentime),
-        'signature': sign,
-        'uid': uid
-    }
-    try:
-        response = requests.post('http://mobile.ximalaya.com/pizza-category/ball/saveListenTime',
-                                 headers=headers, cookies=cookies, data=data)
-        print(response.text)
-    except:
-        print(traceback.format_exc())
+    if listentime//60 >= maximum_duration:
+        print('已到达设置时长,将不再刷时长')
+    else:
+        currentTimeMillis = int(time.time()*1000)-2
+        uid = get_uid(cookies)
+        sign = hashlib.md5(
+            f'currenttimemillis={currentTimeMillis}&listentime={listentime}&uid={uid}&23627d1451047b8d257a96af5db359538f081d651df75b4aa169508547208159'.encode()).hexdigest()
+        data = {
+            'activtyId': 'listenAward',
+            'currentTimeMillis': currentTimeMillis,
+            'listenTime': str(listentime),
+            'nativeListenTime': str(listentime),
+            'signature': sign,
+            'uid': uid
+        }
+        try:
+            response = requests.post('http://mobile.ximalaya.com/pizza-category/ball/saveListenTime',
+                                     headers=headers, cookies=cookies, data=data)
+            print(response.text)
+        except:
+            print(traceback.format_exc())
 
 def listenData(cookies):
     print("\n【刷时长2】")
@@ -623,22 +628,25 @@ def listenData(cookies):
     }
     listentime = date_stamp
     print(f"上传本地收听时长2: {listentime//60}分钟")
-    currentTimeMillis = int(time.time()*1000)-2
-    uid = get_uid(cookies)
-    sign = hashlib.md5(
-        f'currenttimemillis={currentTimeMillis}&listentime={listentime}&uid={uid}&23627d1451047b8d257a96af5db359538f081d651df75b4aa169508547208159'.encode()).hexdigest()
-    data = {
-        'currentTimeMillis': currentTimeMillis,
-        'listenTime': str(listentime),
-        'signature': sign,
-        'uid': uid
-    }
-    try:
-        response = requests.post('http://m.ximalaya.com/speed/web-earn/listen/client/data',
-                                 headers=headers, cookies=cookies, data=json.dumps(data))
-        print(response.text)
-    except:
-        print(traceback.format_exc())
+    if listentime//60 >= maximum_duration:
+        print('已到达设置时长,将不再刷时长')
+    else:
+        currentTimeMillis = int(time.time()*1000)-2
+        uid = get_uid(cookies)
+        sign = hashlib.md5(
+            f'currenttimemillis={currentTimeMillis}&listentime={listentime}&uid={uid}&23627d1451047b8d257a96af5db359538f081d651df75b4aa169508547208159'.encode()).hexdigest()
+        data = {
+            'currentTimeMillis': currentTimeMillis,
+            'listenTime': str(listentime),
+            'signature': sign,
+            'uid': uid
+        }
+        try:
+            response = requests.post('http://m.ximalaya.com/speed/web-earn/listen/client/data',
+                                     headers=headers, cookies=cookies, data=json.dumps(data))
+            print(response.text)
+        except:
+            print(traceback.format_exc())
 
 
 def card_exchangeCoin(cookies, themeId, cardIdList):
