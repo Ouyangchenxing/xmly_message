@@ -48,7 +48,7 @@ if "XMLY_SPEED_COOKIE" in os.environ:
     try:
         if "MAXIMUM_DURATION" in os.environ and os.environ["MAXIMUM_DURATION"] != '':
             maximum_duration = os.environ['MAXIMUM_DURATION']
-            print('1时长限制：%d' % maximum_duration)
+            print('1时长限制：%s' % maximum_duration)
             print(traceback.format_exc())
         else:
             maximum_duration = 1200
@@ -609,7 +609,7 @@ def saveListenTime(cookies):
     }
     listentime = date_stamp
     print(f"上传本地收听时长1: {listentime//60}分钟")
-    if int(listentime//60) >= maximum_duration:
+    if listentime//60 >= int(maximum_duration):
         print('已到达设置时长,将不再刷时长')
     else:
         currentTimeMillis = int(time.time()*1000)-2
@@ -640,7 +640,7 @@ def listenData(cookies):
     }
     listentime = date_stamp
     print(f"上传本地收听时长2: {listentime//60}分钟")
-    if int(listentime//60) >= maximum_duration:
+    if listentime//60 >= int(maximum_duration):
         print('已到达设置时长,将不再刷时长')
     else:
         currentTimeMillis = int(time.time()*1000)-2
