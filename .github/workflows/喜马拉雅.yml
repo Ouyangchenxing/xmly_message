@@ -27,4 +27,5 @@ jobs:
             XMLY_ACCUMULATE_TIME: ${{ secrets.XMLY_ACCUMULATE_TIME }}
             BARK_MACHINE_CODE: ${{ secrets.BARK_MACHINE_CODE }}
             MAXIMUM_DURATION: ${{ secrets.MAXIMUM_DURATION }}
+            SAFE_MODE: ${{ secrets.SAFE_MODE }}
     
