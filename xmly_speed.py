@@ -26,7 +26,8 @@ cookies2 = ''
 cookiesList = [cookies1, cookies2]  # 多账号准备
 XMLY_ACCUMULATE_TIME = 0    # 希望刷时长的,此处置1
 bark_machine_code = ''  # 填写bark机器码
-maximum_duration = 1200
+maximum_duration = 1440
+safe_mode = 0  # 默认是不安全模式
 
 # 使用方案1：GitHub action自动运行,此处无需填写;
 if "XMLY_SPEED_COOKIE" in os.environ:
@@ -44,6 +45,9 @@ if "XMLY_SPEED_COOKIE" in os.environ:
     # GitHub action运行需要填写对应的secrets
     if "XMLY_ACCUMULATE_TIME" in os.environ and os.environ["XMLY_ACCUMULATE_TIME"] == 'zero_s1':
         XMLY_ACCUMULATE_TIME = 1
+        print('action 自动刷时长打开')
+    if "SAFE_MODE" in os.environ and os.environ["SAFE_MODE"] == 'true':
+        safe_mode = 1
         print('action 自动刷时长打开')
     try:
         if "MAXIMUM_DURATION" in os.environ and os.environ["MAXIMUM_DURATION"] != '':
@@ -609,7 +613,7 @@ def saveListenTime(cookies):
     }
     listentime = date_stamp
     print(f"上传本地收听时长1: {listentime//60}分钟")
-    if listentime//60 >= int(maximum_duration) or 1 < bj_dt.hour < 6 or 12 < bj_dt.hour < 15 or 20 < bj_dt.hour < 23:
+    if listentime//60 >= int(maximum_duration):
         print('已到达设置时长,将不再刷时长')
     else:
         currentTimeMillis = int(time.time()*1000)-2
@@ -640,7 +644,7 @@ def listenData(cookies):
     }
     listentime = date_stamp
     print(f"上传本地收听时长2: {listentime//60}分钟")
-    if listentime//60 >= int(maximum_duration) or 1 < bj_dt.hour < 6 or 12 < bj_dt.hour < 15 or 20 < bj_dt.hour < 23:
+    if listentime//60 >= int(maximum_duration):
         print('已到达设置时长,将不再刷时长')
     else:
         currentTimeMillis = int(time.time()*1000)-2
@@ -860,8 +864,15 @@ def main():
             print(" !!!!!!!  cookie填写错误")
             uid = cookies["1&_token"].split("&")[0]  # 强制action报错提醒
         if XMLY_ACCUMULATE_TIME == 1:
-            saveListenTime(cookies)
-            listenData(cookies)
+            if safe_mode == 1:
+                if 0 < bj_dt.hour < 1 or 6 < bj_dt.hour < 11 or 13 < bj_dt.hour < 23:
+                    saveListenTime(cookies)
+                    listenData(cookies)
+                else:
+                    print('不在安全时间内！')
+            else:
+                saveListenTime(cookies)
+                listenData(cookies)
         read(cookies, uid)  # 阅读
         bubble(cookies)  # 收金币气泡
         checkin(cookies)  # 自动签到
