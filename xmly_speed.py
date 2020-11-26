@@ -61,7 +61,6 @@ if "XMLY_SPEED_COOKIE" in os.environ:
 UserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 iting/1.0.12 kdtunion_iting/1.0 iting(main)/1.0.12/ios_1"
 
 def str_to_dict(str_cookie):
-    print(str_cookie)
     if type(str_cookie) == dict:
         return str_cookie
     tmp = str_cookie.split(";")
