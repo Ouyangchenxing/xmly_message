@@ -865,7 +865,7 @@ def main():
             else:
                 saveListenTime(cookies)
                 listenData(cookies)
-        read(cookies, uid)  # 阅读
+        #read(cookies, uid)  # 阅读
         bubble(cookies)  # 收金币气泡
         checkin(cookies)  # 自动签到
         # lottery_info(cookies)  # 大转盘4次
