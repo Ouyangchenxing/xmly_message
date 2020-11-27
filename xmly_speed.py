@@ -163,8 +163,7 @@ def read(cookies, uid):
         except:
             print(traceback.format_exc())
     except:
-        print("网络请求异常,为避免GitHub action报错,直接退出")
-        exit()
+        print(traceback.format_exc())
 
 def ans_receive(cookies, paperId, lastTopicId, receiveType):
     headers = {
@@ -357,8 +356,7 @@ def index_baoxiang_award(cookies):
             response = requests.get('http://mobile.ximalaya.com/pizza-category/activity/awardMultiple',
                                     headers=headers, params=params, cookies=cookies)
         except:
-            print("网络请求异常,为避免GitHub action报错,直接退出")
-            exit()
+            print(traceback.format_exc())
         print("翻倍 ", response.text)
     uid = get_uid(cookies)
     ###################################
@@ -534,8 +532,7 @@ def getOmnipotentCard(cookies):
         count = requests.get('https://m.ximalaya.com/speed/web-earn/card/omnipotentCardInfo',
                              headers=headers, cookies=cookies,).json()["data"]["count"]
     except:
-        print("网络请求异常,为避免GitHub action报错,直接退出")
-        exit()
+        print(traceback.format_exc())
     if count == 5:
         print("今日已满")
         return
